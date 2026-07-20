@@ -1,292 +1,204 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a1a,50:f47c20,100:d96a10&height=220&section=header&text=MANOJ%20AUTOMOBILE&fontSize=60&fontColor=ffffff&fontAlignY=36&desc=Embedded%20Admin%20Panel%20·%2030%2B%20Years%20Mastery%20·%20Delhi&descSize=16&descAlignY=56" width="100%" alt="Header Banner" />
+<!-- Minimal Apple-Style Header -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,100:1d1d1f&height=180&section=header&text=Manoj%20Automobile&fontSize=48&fontColor=ffffff&fontAlignY=50&fontAlign=42&desc=Not%20just%20a%20mechanic.%20A%20master%20of%20his%20craft.&descSize=14&descAlignY=70&descAlign=42&descColor=86868b&animation=blur" width="100%" />
 
-<br/>
+<br/><br/><br/>
 
-<a href="#"><img src="https://img.shields.io/badge/Status-Production_Ready-22c55e?style=for-the-badge&logoColor=white&labelColor=1a1a1a" alt="Status" /></a>
-<a href="#"><img src="https://img.shields.io/badge/License-Private-ef4444?style=for-the-badge&logoColor=white&labelColor=1a1a1a" alt="License" /></a>
-<a href="#"><img src="https://img.shields.io/badge/Stack-React_18%2B_TypeScript-f47c20?style=for-the-badge&logoColor=white&labelColor=1a1a1a" alt="Stack" /></a>
-<a href="#"><img src="https://img.shields.io/badge/Dashboard-Embedded_Admin-fbbf24?style=for-the-badge&logoColor=black&labelColor=1a1a1a" alt="Admin" /></a>
-<a href="#"><img src="https://img.shields.io/badge/AI-Powered_Queries-3b82f6?style=for-the-badge&logoColor=white&labelColor=1a1a1a" alt="AI" /></a>
+<!-- The Guy Working on Desktop Animation -->
+<img src="https://media.giphy.com/media/QaMcUtQvrZFApX6v3m/giphy.gif" width="480" alt="Developer working on desktop" />
 
-<h1>Manoj Automobile</h1>
-<h3>Premium Workshop · 30+ Years of Craftsmanship · Dabri / Dwarka, Delhi</h3>
-
-<p>
-This is a unified full-stack platform where the <b>customer-facing website</b> and the <b>embedded admin business dashboard</b> live together. The original main-page admin was replaced with the dedicated <code>AdminDashboard.tsx</code> module for inventory, query tracking, job cards, and revenue stats — all protected behind a secure admin login.
-</p>
-
-</div>
-
-<hr style="border: 1px solid rgba(244,124,32,0.25); margin: 40px 0;" />
-
-<div align="center">
-
-## Project Overview
-
-</div>
-
-<p>
-Built for <b>Manoj Ji</b> — owner and master mechanic with over three decades of experience. The project now integrates:
-</p>
-
-<ul>
-<li><b>About Section</b> — Owner & mechanics profile, experience badges, photo placeholders.</li>
-<li><b>Embedded Admin Dashboard</b> — Full business control: Dashboard stats, Inventory, Customer Queries, Job Cards.</li>
-<li><b>AI Query Assistant</b> — Claude-powered car diagnosis for Indian-market vehicles with cost estimates in INR.</li>
-<li><b>Customer Sections</b> — Services, Contact, and transparent workshop philosophy.</li>
-</ul>
-
-<div align="center">
-
-## Feature Highlights
-
-</div>
-
-<table>
-<thead>
-<tr style="background:#222; color:#f47c20;">
-<th align="center">Module</th>
-<th>Description</th>
-<th align="center">Key Capability</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background:#1a1a1a;"><td align="center">📊 Admin Dashboard</td><td>Embedded business management panel replacing the original main-page admin</td><td align="center">Password-protected · Real-time stats · Low-stock alerts</td></tr>
-<tr style="background:#181818;"><td align="center">📦 Inventory System</td><td>Full stock tracking with categories, thresholds, and value calculation</td><td align="center">Critical / Low / OK indicators · Inline editing</td></tr>
-<tr style="background:#1a1a1a;"><td align="center">📨 Queries</td><td>Customer issue tracking with WhatsApp integration</td><td align="center">Status flow: New → In-Progress → Quoted → Done</td></tr>
-<tr style="background:#181818;"><td align="center">🔧 Job Cards</td><td>Repair tracking from intake to delivery</td><td align="center">Pending → Progress → Completed → Delivered</td></tr>
-<tr style="background:#1a1a1a;"><td align="center">🤖 AI Assistant</td><td>Claude Sonnet 4 trained for Indian cars</td><td align="center">Cost estimates · Urgency check · WhatsApp redirect</td></tr>
-</tbody>
-</table>
-
-<hr style="border: 1px solid rgba(244,124,32,0.25); margin: 40px 0;" />
-
-<div align="center">
-
-## Architecture
-
-</div>
-
-<div align="center" style="font-family: monospace; background: #111; border: 1px solid rgba(244,124,32,0.2); border-radius: 12px; padding: 24px; max-width: 700px;">
-
-MANOJ AUTOMOBILE PLATFORM
-├── Customer Website (About, Hero, Services, Contact)
-│   └── Integrated Navigation
-└── Embedded Admin Dashboard (Replaced Original)
-    ├── Login Screen (manoj2024)
-    ├── Dashboard (Stats & Alerts)
-    ├── Inventory (Stock Management)
-    ├── Queries (Customer Tracking + WhatsApp)
-    └── Jobs (Card System + Revenue)
-        └── Data Layer (localStorage API)
-
-</div>
-
-<div align="center">
-
-## Tech Stack
-
-</div>
-
-<div align="center">
-<img src="https://skillicons.dev/icons?i=react" width="50" height="50" alt="React" title="React" />
-<img src="https://skillicons.dev/icons?i=typescript" width="50" height="50" alt="TypeScript" title="TypeScript" />
-<img src="https://skillicons.dev/icons?i=vite" width="50" height="50" alt="Vite" title="Vite" />
-<img src="https://skillicons.dev/icons?i=css" width="50" height="50" alt="CSS" title="CSS" />
 <br/><br/>
-<img src="https://img.shields.io/badge/Storage-localStorage_Storage-6b7280?style=flat-square&labelColor=1a1a1a" alt="Storage" />
-<img src="https://img.shields.io/badge/AI-Anthropic_Claude_4-3b82f6?style=flat-square&labelColor=1a1a1a" alt="AI" />
+
+<!-- Typing Animation - Apple Style -->
+<a href="#"><img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=22&duration=3000&pause=1000&color=1D1D1F&center=true&vCenter=true&multiline=true&repeat=true&width=500&height=60&lines=Precision+in+every+diagnosis.;Built+for+30+years+of+trust.;AI-Powered+%7C+Minimal+%7C+Powerful." alt="Typing SVG" /></a>
+
+<br/><br/>
+
+<!-- Minimal Badges -->
+<img src="https://img.shields.io/badge/React-18-1D1D1F?style=flat-square&logo=react&logoColor=white" />
+<img src="https://img.shields.io/badge/TypeScript-5-1D1D1F?style=flat-square&logo=typescript&logoColor=white" />
+<img src="https://img.shields.io/badge/Vite-5-1D1D1F?style=flat-square&logo=vite&logoColor=white" />
+<img src="https://img.shields.io/badge/Claude_AI-Integrated-F47C20?style=flat-square&logo=anthropic&logoColor=white" />
+
+<br/><br/><br/>
+
 </div>
 
-<hr style="border: 1px solid rgba(244,124,32,0.25); margin: 40px 0;" />
-
+<!-- Big Bold Statement -->
 <div align="center">
 
-## Design System
+<h1>Crafted for precision.<br/>Built for trust.</h1>
 
 </div>
 
+<div align="center">
+<i>A full-stack business management web application built for Manoj Automobile — a premium car service workshop in Dabri/Dwarka, Delhi. Combining a customer-facing interface with a powerful admin dashboard, and an AI diagnostic assistant.</i>
+</div>
+
+<br/><br/>
+
+<!-- Apple Style Feature Grid -->
+<div align="center">
 <table>
-<thead>
-<tr style="background:#222; color:#fff;">
-<th>Token</th>
-<th>Color / Value</th>
-<th>Usage</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background:#1a1a1a;"><td>Primary Brand</td><td>#f47c20</td><td>Buttons, badges, accents, highlights</td></tr>
-<tr style="background:#181818;"><td>Background</td><td>#1a1a1a</td><td>Page and card background</td></tr>
-<tr style="background:#1a1a1a;"><td>Surface</td><td>#222 / #2c2c2c</td><td>Cards, inputs, tables</td></tr>
-<tr style="background:#181818;"><td>Success</td><td>#22c55e</td><td>OK stock, completed jobs</td></tr>
-<tr style="background:#1a1a1a;"><td>Warning</td><td>#eab308</td><td>Low stock, pending status</td></tr>
-<tr style="background:#181818;"><td>Critical</td><td>#ef4444</td><td>Critical stock, errors</td></tr>
-<tr style="background:#1a1a1a;"><td>Info / Quoted</td><td>#3b82f6 / #a855f7</td><td>New queries, quoted status</td></tr>
-</tbody>
-</table>
-
-<div align="center">
-
-## Project Structure
-
-</div>
-
-    manoj-automobile/
-    ├── src/
-    │   ├── components/
-    │   │   ├── About.tsx              # Owner & workers profile section
-    │   │   ├── AdminDashboard.tsx     # EMBEDDED admin panel (replaced original)
-    │   │   ├── AskQuery.tsx           # AI-powered car diagnostic
-    │   │   ├── Hero.tsx               # Landing hero section
-    │   │   ├── Services.tsx           # Service offerings
-    │   │   ├── Contact.tsx            # Contact & location info
-    │   │   └── Footer.tsx             # Site footer
-    │   ├── data/
-    │   │   └── carData.ts             # Inventory data & types
-    │   ├── App.tsx                    # Main app routing
-    │   └── main.tsx                   # Entry point
-    ├── index.html
-    ├── package.json
-    ├── tsconfig.json
-    ├── vite.config.ts
-    └── README.md                      # ← You are here
-
-<hr style="border: 1px solid rgba(244,124,32,0.25); margin: 40px 0;" />
-
-<div align="center">
-
-## Quick Start
-
-</div>
-
-    git clone https://github.com/yourusername/manoj-automobile.git
-    cd manoj-automobile
-    npm install
-    npm run dev
-
-<div align="center">
-<img src="https://img.shields.io/badge/Dev_Server-localhost:5173-22c55e?style=for-the-badge&labelColor=1a1a1a" />
-</div>
-
-<hr style="border: 1px solid rgba(244,124,32,0.25); margin: 40px 0;" />
-
-<div align="center">
-
-## Admin Dashboard Access
-
-</div>
-
-<p>
-The embedded admin is protected via a secure login screen. Default password for development:
-</p>
-
-<div align="center" style="background:#222; border: 1px solid rgba(244,124,32,0.3); border-radius: 8px; padding: 16px; display: inline-block;">
-
-Password: <code>manoj2024</code>  |  Storage: <code>localStorage</code>  |  API: <code>Anthropic Claude Sonnet 4</code>
-
-</div>
-
-<p>
-Once authenticated, navigate through:
-</p>
-
-<ul>
-<li><b>Dashboard</b> — Open queries, active jobs, low stock alerts, revenue, inventory value.</li>
-<li><b>Inventory</b> — Edit stock levels, view critical/low/OK status, reset defaults.</li>
-<li><b>Queries</b> — Manage customer issues, change status, open WhatsApp chat.</li>
-<li><b>Jobs</b> — Create job cards, track repair status, calculate revenue.</li>
-</ul>
-
-<hr style="border: 1px solid rgba(244,124,32,0.25); margin: 40px 0;" />
-
-<div align="center">
-
-## AI Assistant Features
-
-</div>
-
-<ul>
-<li>Quick-select chips for common car issues (brake noise, AC failure, overheating, service intervals, CNG mileage).</li>
-<li>Answers in 3-5 lines with clear diagnosis, urgency level, and rough cost in INR.</li>
-<li>Always ends with a recommendation to WhatsApp Manoj Ji for exact diagnosis.</li>
-<li>Trained specifically for Indian-market brands: Maruti Suzuki, Hyundai, Toyota, Tata, Mahindra, Honda, Kia, Renault.</li>
-</ul>
-
-<hr style="border: 1px solid rgba(244,124,32,0.25); margin: 40px 0;" />
-
-<div align="center">
-
-## Roadmap
-
-</div>
-
-<table>
-<thead>
-<tr style="background:#222; color:#fff;">
-<th>Phase</th>
-<th>Feature</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background:#1a1a1a;"><td>Phase 1</td><td>Customer site + embedded admin dashboard</td><td>✅ Done</td></tr>
-<tr style="background:#181818;"><td>Phase 2</td><td>Inventory & query tracking systems</td><td>✅ Done</td></tr>
-<tr style="background:#1a1a1a;"><td>Phase 3</td><td>Job card management + AI assistant</td><td>✅ Done</td></tr>
-<tr style="background:#181818;"><td>Phase 4</td><td>Backend API + database migration</td><td>🔄 Planned</td></tr>
-<tr style="background:#1a1a1a;"><td>Phase 5</td><td>WhatsApp automation + SMS notifications</td><td>🔄 Planned</td></tr>
-<tr style="background:#181818;"><td>Phase 6</td><td>Customer login portal + invoice PDF</td><td>🔄 Planned</td></tr>
-</tbody>
-</table>
-
-<hr style="border: 1px solid rgba(244,124,32,0.25); margin: 40px 0;" />
-
-<div align="center">
-
-## Contact & Business Info
-
-</div>
-
-<table>
-<thead>
-<tr style="background:#222; color:#fff;">
-<th>Workshop</th>
-<th>Specialization</th>
-<th>Connect</th>
-</tr>
-</thead>
-<tbody>
-<tr style="background:#1a1a1a;">
-<td align="center">
-<b>Manoj Automobile</b><br/>
-Dabri / Dwarka, Delhi<br/>
-<img src="https://img.shields.io/badge/Experience-30%2B_Years-f47c20?style=flat-square&labelColor=1a1a1a" alt="Experience" />
+<tr>
+<td align="center" width="50%">
+<br/>
+<h3>📊 Admin Dashboard</h3>
+<p>Real-time stats, revenue tracking, and low-stock alerts. A centralized hub for complete workshop management.</p>
+<br/>
 </td>
-<td align="center">
-Clutch & Brake Master<br/>
-OEM & Genuine Parts Only<br/>
-Transparent Billing
-</td>
-<td align="center">
-WhatsApp for Quick Queries<br/>
-Personal Attention Per Visit<br/>
-<img src="https://img.shields.io/badge/WhatsApp-Chat_Now-25d366?style=flat-square&labelColor=1a1a1a" alt="WhatsApp" />
+<td align="center" width="50%">
+<br/>
+<h3>📦 Inventory System</h3>
+<p>Full CRUD inventory with automatic stock statuses. Seamless tracking from critical to OK.</p>
+<br/>
 </td>
 </tr>
-</tbody>
+<tr>
+<td align="center" width="50%">
+<br/>
+<h3>🤖 AI Assistant</h3>
+<p>Claude AI-powered diagnostics trained for Indian market vehicles. Instant cost estimates and urgency checks.</p>
+<br/>
+</td>
+<td align="center" width="50%">
+<br/>
+<h3>🔧 Job Management</h3>
+<p>Complete job card workflows with WhatsApp integration. From pending to delivered, transparently tracked.</p>
+<br/>
+</td>
+</tr>
 </table>
+</div>
+
+<br/><br/>
+
+<!-- Architecture / Tech Stack -->
+<div align="center">
+<h2>Technology. Perfected.</h2>
+<br/>
+<img src="https://skillicons.dev/icons?i=react,typescript,vite,css,vercel,git&perline=6&theme=light" />
+<br/><br/>
+</div>
+
+<br/>
+
+<div align="center">
+<pre style="background: transparent; border: none;">
+┌──────────────────────────────────────────────────────────┐
+│                    MANOJ AUTOMOBILE                       │
+├──────────────────────────────────────────────────────────┤
+│   ┌─────────────┐  ┌──────────────┐  ┌───────────────┐  │
+│   │  Customer    │  │   Admin      │  │  AI Query     │  │
+│   │  Website     │  │   Dashboard  │  │  Assistant    │  │
+│   └──────┬──────┘  └──────┬───────┘  └───────┬───────┘  │
+│          └────────────────┼───────────────────┘          │
+│                           │                              │
+│              ┌────────────▼────────────┐                 │
+│              │    localStorage API     │                 │
+│              └─────────────────────────┘                 │
+└──────────────────────────────────────────────────────────┘
+</pre>
+</div>
+
+<br/><br/>
+
+<!-- Project Structure -->
+<div align="center">
+<h2>Project Architecture</h2>
+<br/>
+</div>
+
+<pre>
+manoj-automobile/
+├── src/
+│   ├── components/
+│   │   ├── About.tsx              # Owner & worker cards
+│   │   ├── AdminDashboard.tsx     # Inventory / Queries / Jobs
+│   │   ├── AskQuery.tsx           # AI diagnostic assistant
+│   │   ├── Hero.tsx               # Landing section
+│   │   ├── Services.tsx           # Offerings grid
+│   │   ├── Contact.tsx            # Contact & location
+│   │   └── Footer.tsx             # Site footer
+│   ├── data/
+│   │   └── carData.ts             # Default inventory & types
+│   ├── App.tsx                    # Main routing
+│   └── main.tsx                   # Entry point
+├── index.html
+├── package.json
+└── vite.config.ts
+</pre>
+
+<br/><br/>
+
+<!-- Quick Start -->
+<div align="center">
+<h2>Get Started.</h2>
+<br/>
+</div>
+
+<pre><code># Clone the repository
+git clone https://github.com/yourusername/manoj-automobile.git
+
+# Navigate to project
+cd manoj-automobile
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build</code></pre>
 
 <br/>
 
 <div align="center">
 
-<p>
-<img src="https://img.shields.io/badge/Built_with-❤️_%26_⚙️-f47c20?style=for-the-badge&labelColor=1a1a1a" alt="Built With" /><br/>
-<b>Not Just a Mechanic — A Master of His Craft</b><br/>
-— Manoj Ji, Owner · 30+ Years of Automotive Excellence
-</p>
+| Command | Action |
+|---------|--------|
+| `npm run dev` | Start dev server at `localhost:5173` |
+| `npm run build` | Production build to `dist/` |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run ESLint checks |
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a1a,50:f47c20,100:d96a10&height=120&section=footer" width="100%" alt="Footer" />
+</div>
+
+<br/><br/>
+
+<!-- Design System -->
+<div align="center">
+<h2>Design System</h2>
+<br/>
+
+<table>
+<tr>
+<td align="center"><img src="https://placehold.co/60x60/1a1a1a/1a1a1a.png" width="40" /><br/><b>Charcoal Black</b><br/><sub>#1a1a1a</sub></td>
+<td align="center"><img src="https://placehold.co/60x60/f47c20/f47c20.png" width="40" /><br/><b>Signal Orange</b><br/><sub>#f47c20</sub></td>
+<td align="center"><img src="https://placehold.co/60x60/2c2c2c/2c2c2c.png" width="40" /><br/><b>Graphite Grey</b><br/><sub>#2c2c2c</sub></td>
+<td align="center"><img src="https://placehold.co/60x60/22c55e/22c55e.png" width="40" /><br/><b>Success Green</b><br/><sub>#22c55e</sub></td>
+</tr>
+</table>
+<br/>
+<b>Typography:</b> Barlow Condensed (Headers) · Rajdhani (UI) · Barlow (Body)
+</div>
+
+<br/><br/>
+
+<!-- Contact & Footer -->
+<div align="center">
+
+<h2>Manoj Automobile.</h2>
+<p>30+ Years of Automotive Excellence in Delhi.</p>
+<br/>
+
+<a href="#"><img src="https://img.shields.io/badge/WhatsApp-Chat_Now-25d366?style=flat-square&logo=whatsapp&logoColor=white" /></a>
+<a href="#"><img src="https://img.shields.io/badge/Location-Dabri%2FDwarka-1D1D1F?style=flat-square&logo=googlemaps&logoColor=white" /></a>
+
+<br/><br/>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:000000,100:1d1d1f&height=80&section=footer" width="100%" />
 
 </div>
