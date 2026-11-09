@@ -41,6 +41,11 @@ const hi: Record<string, string> = {
   "Read about Manoj Ji": "मनोज जी के बारे में पढ़ें",
   "CARE THAT GOES THE EXTRA MILE.": "देखभाल, जो हर कदम साथ चले।",
   "Explore our services": "हमारी सेवाएँ देखें",
+  "Workshop at a glance": "वर्कशॉप एक नज़र में",
+  "AT A GLANCE": "एक नज़र में",
+  "Rated {r} out of 5 on Google": "Google पर 5 में से {r} रेटिंग",
+  "{n} Google reviews": "{n} Google रिव्यू",
+  "30+ years of experience": "30+ साल का अनुभव",
 
   // Open / closed status
   "Open now": "अभी खुला है",

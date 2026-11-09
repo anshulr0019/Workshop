@@ -1,6 +1,7 @@
 import Icon from "./Icon";
 import OpenStatus from "./OpenStatus";
-import { business } from "../data/business";
+import { business, directionsUrl } from "../data/business";
+import { googleRating } from "../data/reviews";
 import { useLang } from "../i18n";
 export default function Hero() {
   const { t } = useLang();
@@ -32,7 +33,6 @@ export default function Hero() {
             {t("Call Manoj Ji")}
           </a>
         </div>
-        <OpenStatus className="on-dark hero-open" />
         <p className="hero-note">
           {t("Petrol, diesel & CNG")} <span>·</span> {t("Hindi & English welcome")}
         </p>
@@ -51,32 +51,51 @@ export default function Hero() {
           </span>
         </div>
       </div>
-      <div className="hero-portrait">
-        <div className="portrait-top">
-          <span>{t("THE EXPERIENCE BEHIND EVERY REPAIR")}</span>
-          <Icon name="wrench" size={22} />
+      <aside className="hero-card" aria-label={t("Workshop at a glance")}>
+        <div className="hc-top">
+          <span>{t("AT A GLANCE")}</span>
+          <Icon name="wrench" size={20} />
         </div>
-        <img src="/images/manoj.jpg" alt={t("Manoj Ji, owner of Manoj Automobile")} width="825" height="1100" fetchPriority="high" />
-        <div className="experience-stamp">
-          <strong>
-            30<span>+</span>
-          </strong>
-          <span>
-            {t("YEARS OF")}
-            <br />
-            {t("EXPERIENCE")}
-          </span>
-        </div>
-        <div className="portrait-caption">
-          <div>
-            <h2>{t("Meet Manoj Ji.")}</h2>
-            <p>{t("Your mechanic. Your neighbour.")}</p>
-          </div>
-          <a href="#about" aria-label={t("Read about Manoj Ji")}>
-            <Icon name="arrow" size={24} />
+        {googleRating && (
+          <a className="hc-rating" href="#reviews" aria-label={t("Rated {r} out of 5 on Google", { r: googleRating.rating.toFixed(1) })}>
+            <strong>{googleRating.rating.toFixed(1)}</strong>
+            <span>
+              <span className="hc-stars" aria-hidden="true">★★★★★</span>
+              <span>{t("{n} Google reviews", { n: googleRating.count })}</span>
+            </span>
+            <Icon name="arrow" size={20} />
           </a>
+        )}
+        <div className="hc-row">
+          <Icon name="clock" size={20} />
+          <div>
+            <OpenStatus className="hc-open" />
+            <p>{business.hours.map((h) => t(h)).join(" · ")}</p>
+          </div>
         </div>
-      </div>
+        <div className="hc-row">
+          <Icon name="pin" size={20} />
+          <div>
+            <p className="hc-strong">{business.addressLines[0]}</p>
+            <p>{business.addressLines.slice(1).join(", ")}</p>
+            <a className="hc-link" href={directionsUrl} target="_blank" rel="noreferrer">
+              {t("Get directions")}
+              <Icon name="arrow" size={16} />
+            </a>
+          </div>
+        </div>
+        <div className="hc-row">
+          <Icon name="phone" size={20} />
+          <div className="hc-phones">
+            {business.phones.map((p) => (
+              <a key={p.tel} href={`tel:${p.tel}`}>
+                {p.display}
+              </a>
+            ))}
+          </div>
+        </div>
+        <p className="hc-foot">{t("30+ years of experience")}</p>
+      </aside>
       <div className="hero-bottom">
         <span>{t("CARE THAT GOES THE EXTRA MILE.")}</span>
         <a href="#services">
