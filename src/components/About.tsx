@@ -8,8 +8,8 @@ export default function About() {
       <div className="container about-layout">
         <FadeIn className="about-visual">
           <div className="team-photo">
-            <img src="/images/team.jpg" alt={t("A member of the Manoj Automobile workshop team")} width="525" height="700" loading="lazy" decoding="async" />
-            <span className="photo-label">{t("THE PEOPLE BEHIND THE WORK")}</span>
+            <img src="/images/manoj.jpg" alt={t("Manoj Ji, owner of Manoj Automobile")} width="825" height="1100" loading="lazy" decoding="async" />
+            <span className="photo-label">{t("MANOJ JI · OWNER")}</span>
           </div>
           <div className="experience-card">
             <span>{t("BUILT ON EXPERIENCE")}</span>

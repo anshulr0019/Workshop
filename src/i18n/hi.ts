@@ -167,8 +167,7 @@ const hi: Record<string, string> = {
   "Please confirm if this time works.": "कृपया बताएँ कि यह समय ठीक है या नहीं।",
 
   // About
-  "A member of the Manoj Automobile workshop team": "मनोज ऑटोमोबाइल वर्कशॉप टीम के सदस्य",
-  "THE PEOPLE BEHIND THE WORK": "काम के पीछे के लोग",
+  "MANOJ JI · OWNER": "मनोज जी · मालिक",
   "BUILT ON EXPERIENCE": "अनुभव की नींव पर",
   "30+ years.": "30+ साल।",
   "One workshop.": "एक वर्कशॉप।",
