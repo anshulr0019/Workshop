@@ -1,49 +1,56 @@
-const services = [
-  { icon: "🔧", title: "Full Car Service", desc: "Oil change, filters, spark plugs, fluid top-ups & 50-point inspection." },
-  { icon: "🛞", title: "Brake Service", desc: "Brake pads, disc/drum replacement, brake fluid flush & ABS check." },
-  { icon: "⚙️", title: "Engine Repair", desc: "Overheating, misfiring, timing belt, head gasket & valve work." },
-  { icon: "🔄", title: "Clutch Overhaul", desc: "Clutch plate, pressure plate & bearing replacement. Our speciality." },
-  { icon: "❄️", title: "AC Repair", desc: "Gas refilling, compressor, condenser, cooling coil & duct repair." },
-  { icon: "⚡", title: "Electrical Work", desc: "Battery, alternator, starter motor, wiring & sensor diagnostics." },
-  { icon: "🛢️", title: "CNG Servicing", desc: "CNG kit maintenance, leak check, valve service & tune-up." },
-  { icon: "🔩", title: "Suspension", desc: "Shock absorbers, ball joints, tie rods, alignment & wheel balancing." },
-  { icon: "🖥️", title: "Diagnostics", desc: "Computer-aided scanning, error code reading & expert analysis." },
+import FadeIn from "./FadeIn";
+import Icon, { type IconName } from "./Icon";
+import { whatsappUrl } from "../data/business";
+import { useLang } from "../i18n";
+const services: { icon: IconName; title: string; desc: string; tag?: string }[] = [
+  { icon: "car", title: "Periodic servicing", desc: "Oil, filters, fluids and the everyday checks that keep your car running well." },
+  { icon: "brake", title: "Clutch & brakes", desc: "From a heavy clutch to worn brakes. Get the feel of your drive back.", tag: "OUR SPECIALITY" },
+  { icon: "wrench", title: "Engine & diagnostics", desc: "Warning lights, unusual sounds or performance issues? Let’s find the cause." },
+  { icon: "snow", title: "AC & cooling", desc: "Cooling checks, leak diagnosis and AC repairs for Delhi’s summer days." },
+  { icon: "bolt", title: "Electrical & battery", desc: "Starting trouble, battery checks, wiring and electrical fault diagnosis." },
+  { icon: "shield", title: "Suspension & CNG", desc: "Suspension repairs and CNG maintenance. Ask us about your specific issue." },
 ];
-
 export default function Services() {
+  const { lang, t } = useLang();
   return (
-    <section id="services" style={{ padding: "80px 5%", background: "#1a1a1a" }}>
-      <div style={{ marginBottom: 50 }}>
-        <div style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, fontSize: "0.8rem", color: "#f47c20", letterSpacing: 3, textTransform: "uppercase", marginBottom: 10, display: "flex", alignItems: "center", gap: 8 }}>
-          <span style={{ width: 28, height: 2, background: "#f47c20", display: "inline-block" }} />
-          What We Do
-        </div>
-        <h2 style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: "clamp(1.9rem,4vw,3rem)", fontWeight: 800, lineHeight: 1.1, marginBottom: 16, color: "#fff" }}>
-          Complete Car Care<br /><span style={{ color: "#f47c20" }}>Under One Roof</span>
-        </h2>
-        <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "1rem", lineHeight: 1.7, maxWidth: 600 }}>
-          From routine oil changes to complex engine overhauls — we handle it all with precision and genuine parts.
-        </p>
-      </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 16 }}>
-        {services.map(s => (
-          <div key={s.title}
-            style={{ background: "#222", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 12, padding: "24px 20px", transition: "all 0.25s", cursor: "default" }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(244,124,32,0.4)";
-              (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
-              (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 30px rgba(0,0,0,0.3)";
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.07)";
-              (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-              (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-            }}>
-            <span style={{ fontSize: "2rem", marginBottom: 12, display: "block" }}>{s.icon}</span>
-            <h3 style={{ fontFamily: "'Barlow Condensed',sans-serif", fontSize: "1.1rem", fontWeight: 700, marginBottom: 6, color: "#fff" }}>{s.title}</h3>
-            <p style={{ fontSize: "0.82rem", color: "#888", lineHeight: 1.5 }}>{s.desc}</p>
+    <section id="services" className="section light-section">
+      <div className="container">
+        <FadeIn>
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">{t("01 / WHAT WE DO")}</p>
+              <h2>
+                {t("Everyday care.")}
+                <br />
+                <span>{t("Expert repairs.")}</span>
+              </h2>
+            </div>
+            <p>{t("From the regular service to the sound you can’t quite explain. We’ll help you work out what your car needs.")}</p>
           </div>
-        ))}
+        </FadeIn>
+        <div className="service-grid">
+          {services.map((s, i) => (
+            <FadeIn key={s.title}>
+              <a
+                className="service-card"
+                href={whatsappUrl(t("Hello Manoj Ji, I need help with {service} for my car.", { service: lang === "hi" ? t(s.title) : s.title.toLowerCase() }))}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className="service-top">
+                  <Icon name={s.icon} size={29} />
+                  <span>{s.tag ? t(s.tag) : `0${i + 1}`}</span>
+                </div>
+                <h3>{t(s.title)}</h3>
+                <p>{t(s.desc)}</p>
+                <span className="service-link">
+                  {t("Enquire about this service")}
+                  <Icon name="arrow" size={18} />
+                </span>
+              </a>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );

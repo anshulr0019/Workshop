@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { prices, generateRecommendations, type Recommendation } from "../data/carData";
 
 const urgencyConfig = {
@@ -15,6 +15,7 @@ export default function PricePrediction() {
   const [fuelType, setFuelType] = useState("Petrol");
   const [result, setResult] = useState<{ recommendations: Recommendation[]; totalMin: number; totalMax: number; healthScore: number } | null>(null);
   const [error, setError] = useState("");
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const carList = Object.entries(prices).map(([key, val]) => ({ key, name: val.name, brand: val.brand, fuelTypes: val.fuelTypes }));
 
@@ -27,6 +28,9 @@ export default function PricePrediction() {
     if (lastDate > new Date()) { setError("Last service date cannot be in the future."); return; }
     const res = generateRecommendations(carKey, Number(mileage), lastDate, fuelType);
     setResult(res);
+    setTimeout(() => {
+      resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
   };
 
   const healthColor = result
@@ -108,7 +112,7 @@ export default function PricePrediction() {
 
       {/* Result */}
       {result && (
-        <div style={{ maxWidth: 860, animation: "fadeIn 0.4s ease" }}>
+        <div ref={resultRef} style={{ maxWidth: 860, animation: "fadeIn 0.4s ease", scrollMarginTop: "90px" }}>
           {/* Health Score */}
           <div style={{ background: "#222", border: `1px solid ${healthColor}40`, borderRadius: 16, padding: "28px 32px", marginBottom: 24, display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap" }}>
             <div style={{ textAlign: "center" }}>
@@ -162,7 +166,7 @@ export default function PricePrediction() {
               <div style={{ fontFamily: "'Rajdhani',sans-serif", fontWeight: 700, color: "#fff", fontSize: "1.05rem" }}>📋 Get Your Exact Quote from Manoj Ji</div>
               <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.5)", marginTop: 3 }}>This is an AI estimate. Final pricing confirmed after physical inspection — always free.</div>
             </div>
-            <a href={`https://wa.me/919999999999?text=Hello%20Manoj%20Ji,%20I%20ran%20the%20Bill%20Predictor%20for%20my%20car.%20Mileage:%20${mileage}km.%20Can%20I%20get%20a%20quote?`} target="_blank" rel="noreferrer"
+            <a href={`https://wa.me/919213172194?text=Hello%20Manoj%20Ji,%20I%20ran%20the%20Bill%20Predictor%20for%20my%20car.%20Mileage:%20${mileage}km.%20Can%20I%20get%20a%20quote?`} target="_blank" rel="noreferrer"
               style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25d366", color: "#fff", padding: "11px 22px", borderRadius: 8, textDecoration: "none", fontFamily: "'Barlow Condensed',sans-serif", fontWeight: 700, fontSize: "1rem", letterSpacing: 1 }}>
               💬 WhatsApp Quote
             </a>

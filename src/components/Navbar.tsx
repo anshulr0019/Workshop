@@ -1,92 +1,100 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import Icon from "./Icon";
+import { business } from "../data/business";
+import { useLang } from "../i18n";
+const links = [
+  ["Services", "services"],
+  ["Book a visit", "book"],
+  ["Our story", "about"],
+  ["Reviews", "reviews"],
+  ["Visit us", "contact"],
+];
 
-export default function Navbar({ onAdminClick }: { onAdminClick: () => void }) {
-
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+// Switches the whole site between English and Hindi; the choice is remembered.
+function LanguageToggle() {
+  const { lang, setLang, t } = useLang();
+  const next = lang === "hi" ? "en" : "hi";
   return (
-    <motion.nav
-      initial={{ y: -60, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-black/80 backdrop-blur-xl border-b border-white/10"
-          : "bg-transparent"
-      }`}
+    <button
+      type="button"
+      className="lang-toggle"
+      onClick={() => setLang(next)}
+      aria-label={t(next === "hi" ? "View this site in Hindi" : "View this site in English")}
+      lang={next === "hi" ? "hi" : "en"}
     >
-      <div className="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
+      {next === "hi" ? "हिंदी" : "English"}
+    </button>
+  );
+}
 
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 bg-orange-500 rounded-lg flex items-center justify-center text-lg">
-            🔧
-          </div>
-          <div className="text-white font-bold tracking-wide">
-            MANOJ AUTOMOBILE
-          </div>
-        </div>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex gap-8 items-center">
-          {["Services", "Pricing", "About", "FAQ"].map((item) => (
-            <a
-              key={item}
-              href={`#${item === "Pricing" ? "estimator" : item.toLowerCase()}`}
-              className="relative text-sm text-white/70 hover:text-white transition"
-            >
-              {item}
-              <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-orange-500 transition-all duration-300 hover:w-full"></span>
+export default function Navbar() {
+  const { t } = useLang();
+  const [open, setOpen] = useState(false);
+  const toggle = useRef<HTMLButtonElement>(null);
+  const nav = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const close = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggle.current?.focus();
+      }
+    };
+    const outside = (event: PointerEvent) => {
+      if (!nav.current?.contains(event.target as Node)) setOpen(false);
+    };
+    document.addEventListener("keydown", close);
+    document.addEventListener("pointerdown", outside);
+    return () => {
+      document.removeEventListener("keydown", close);
+      document.removeEventListener("pointerdown", outside);
+    };
+  }, []);
+  return (
+    <header className="site-header">
+      <nav ref={nav} className="container navigation" aria-label={t("Main navigation")}>
+        <a className="logo" href="#hero" aria-label={t("Manoj Automobile home")} onClick={() => setOpen(false)}>
+          <span className="logo-mark">
+            <Icon name="wrench" size={24} />
+          </span>
+          <span>
+            MANOJ<span className="logo-sub">AUTOMOBILE</span>
+          </span>
+        </a>
+        <div className="desktop-nav">
+          {links.map(([label, id]) => (
+            <a href={`#${id}`} key={id}>
+              {t(label)}
             </a>
           ))}
-
-          <button
-            onClick={onAdminClick}
-            className="px-4 py-1.5 border border-white/20 rounded-full text-sm hover:bg-white/10 transition"
-          >
-            Admin
-          </button>
         </div>
-
-        {/* Mobile Toggle */}
+        <LanguageToggle />
+        <a className="header-call" aria-label={t("Call Manoj Ji")} href={`tel:${business.phone}`}>
+          <Icon name="phone" size={17} />
+          <span>{t("Let’s talk")}</span>
+        </a>
         <button
-          className="md:hidden text-white"
-          onClick={() => setMenuOpen(!menuOpen)}
+          ref={toggle}
+          className="menu-toggle"
+          aria-label={t(open ? "Close menu" : "Open menu")}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          onClick={() => setOpen(!open)}
         >
-          ☰
+          <Icon name={open ? "close" : "menu"} />
         </button>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="md:hidden bg-black/90 backdrop-blur-xl px-5 pb-6"
-          >
-            <div className="flex flex-col gap-4 pt-4">
-              {["services","estimator","about","faq"].map((id) => (
-                <a key={id} href={`#${id}`} className="text-white/80">
-                  {id.charAt(0).toUpperCase() + id.slice(1)}
-                </a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+        <div id="mobile-menu" className="mobile-menu" hidden={!open}>
+          {links.map(([label, id]) => (
+            <a href={`#${id}`} key={id} onClick={() => setOpen(false)}>
+              {t(label)}
+              <Icon name="arrow" />
+            </a>
+          ))}
+          <a href="#faq" onClick={() => setOpen(false)}>
+            {t("Common questions")}
+            <Icon name="arrow" />
+          </a>
+        </div>
+      </nav>
+    </header>
   );
 }

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { defaultInventory, type InventoryItem } from "../data/carData";
 import type { Job, Query } from "../utils/excelUtils";
 
-const ADMIN_PASSWORD = "manoj9213";
+// Local prototype only; this is not authentication and is not imported by the public app.
 
 const STORAGE_KEY_INV = "manoj-inventory";
 const STORAGE_KEY_QUERIES = "manoj-queries";
@@ -153,7 +153,7 @@ export default function AdminDashboard({ onClose }: Props) {
   }, []);
 
   const handleLogin = () => {
-    if (password === ADMIN_PASSWORD) {
+    if (import.meta.env.DEV && password === "LOCAL DEMO") {
       setAuthed(true);
       setPassword("");
       setPwError(false);

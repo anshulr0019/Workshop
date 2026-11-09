@@ -36,17 +36,6 @@ export const prices: Record<string, CarData> = {
   bolero:   { name: "Mahindra Bolero", brand: "Mahindra", fuelTypes: ["Diesel"], data: [["Full Service (Basic)", "₹2,999","Diesel oil + Filter + Check"],["Full Service (Premium)", "₹4,499","Fully synthetic + all filters"],["Brake Pad Replacement", "₹1,599","Per axle, parts included"],["Oil Change (15W-40 Diesel)", "₹1,299","Engine flush + oil"],["Clutch Overhaul", "₹10,000","Plate + Bearing + Labour"]] },
 };
 
-export const reviews = [
-  { text: "Manoj Ji is the most honest mechanic I've ever met. He diagnosed my Swift's issue in minutes and charged fairly. No overcharging at all.", name: "Rahul Sharma", loc: "Dwarka Sector 12", init: "RS" },
-  { text: "Genuine work, genuine parts. My Creta's clutch is smooth as butter after Manoj Ji's touch. I come from Noida just for him!", name: "Priya Verma", loc: "Noida Sector 62", init: "PV" },
-  { text: "Excellent brake job on my WagonR. Polite and knowledgeable staff. They explained everything before starting the work.", name: "Amit Singh", loc: "Uttam Nagar", init: "AS" },
-  { text: "Best car workshop in entire West Delhi area. My Innova's AC repair was done perfectly. Highly recommended!", name: "Suresh Kumar", loc: "Janakpuri", init: "SK" },
-  { text: "Clutch and brake experts — this is the right description. My i20 clutch is brand new feeling. Great value for money.", name: "Neha Gupta", loc: "Dwarka Mor", init: "NG" },
-  { text: "30 years of experience shows. Manoj Ji found an electrical fault my dealer couldn't identify for months. Brilliant!", name: "Vikram Malhotra", loc: "Palam Vihar", init: "VM" },
-  { text: "Transparent billing, zero hidden charges. Got a full service for my Alto at an unbeatable price. Will come back!", name: "Ritu Agarwal", loc: "Dabri", init: "RA" },
-  { text: "My Scorpio was misfiring badly. Manoj Ji fixed it same day. Very reasonable rates for such expert work.", name: "Deepak Yadav", loc: "Bindapur", init: "DY" },
-];
-
 // Milestone-based service recommendations
 export interface Recommendation {
   service: string;

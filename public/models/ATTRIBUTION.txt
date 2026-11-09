@@ -1,0 +1,9 @@
+engine-artec-i4.glb
+
+Source: "Four-cylinder engine" 3D model by Artec Group, Inc. (www.artec3d.com)
+https://www.artec3d.com/3d-models/four-cylinder-engine
+Licence: Creative Commons Attribution 3.0 Unported, https://creativecommons.org/licenses/by/3.0/
+
+Changes made: converted from PLY to glTF, simplified from ~10 million to 150,000
+triangles, re-centred, rescaled to metres, normals recomputed, material colour set,
+and compressed (EXT_meshopt_compression). The original is unaltered at the source.

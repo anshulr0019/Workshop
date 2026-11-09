@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+.env
+.env.*
+!.env.example
+.vercel/
+
+# Sample/reference photos without a publishing licence: local preview only
+public/images/story-sample/
+dist/images/story-sample/

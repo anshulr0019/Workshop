@@ -1,100 +1,54 @@
-import { useState } from "react";
-
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import BreakdownHelp from "./components/BreakdownHelp";
 import Services from "./components/Services";
-import PriceEstimator from "./components/PriceEstimator";
-import PricePrediction from "./components/PricePrediction";
+import EngineStory from "./components/EngineStory";
+import BookAppointment from "./components/BookAppointment";
 import About from "./components/About";
 import Reviews from "./components/Reviews";
 import FAQ from "./components/FAQ";
 import AskQuery from "./components/AskQuery";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import AdminDashboard from "./components/AdminDashboard";
+import { LangProvider, useLang } from "./i18n";
 
-const brands = [
-  "🚗 Maruti Suzuki",
-  "🚗 Hyundai",
-  "🚗 Toyota",
-  "🚗 Tata",
-  "🚗 Mahindra",
-  "🚗 Honda",
-  "🚗 Kia",
-  "🚗 Renault",
-  "🚗 Nissan",
-  "🚗 Skoda",
-  "🚗 Volkswagen",
-  "🚗 & More"
-];
+function Page() {
+  const { t } = useLang();
+  return (
+    <>
+      <a href="#main" className="skip-link">
+        {t("Skip to content")}
+      </a>
+      <Navbar />
+      <main id="main" tabIndex={-1}>
+        <Hero />
+        <div className="brands">
+          <div className="container brands-inner">
+            <span>{t("MULTI-BRAND CAR CARE")}</span>
+            <div>
+              Maruti Suzuki <i /> Hyundai <i /> Tata <i /> Mahindra <i /> Toyota <i /> Honda <i /> Kia
+            </div>
+          </div>
+        </div>
+        <BreakdownHelp />
+        <EngineStory />
+        <Services />
+        <BookAppointment />
+        <About />
+        <Reviews />
+        <AskQuery />
+        <FAQ />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}
 
 export default function App() {
-  const [adminOpen, setAdminOpen] = useState(false);
-
-  // ✅ When admin is open, completely replace the page
-  if (adminOpen) {
-    return <AdminDashboard onClose={() => setAdminOpen(false)} />;
-  }
-
-  // ✅ Normal website view
   return (
-    <div style={{ background: "#1a1a1a", color: "#fff", fontFamily: "'Barlow', sans-serif", overflowX: "hidden" }}>
-      
-      <div style={{ height: 4, background: "linear-gradient(90deg, #1a4fa0, #f47c20, #1a4fa0)" }} />
-
-      <Navbar onAdminClick={() => setAdminOpen(true)} />
-
-      <Hero />
-
-      {/* Brands Section */}
-      <div style={{ background: "#161616", padding: "44px 5%" }}>
-        <div style={{
-          textAlign: "center",
-          fontFamily: "'Rajdhani',sans-serif",
-          fontSize: "0.8rem",
-          fontWeight: 700,
-          color: "#666",
-          letterSpacing: 3,
-          textTransform: "uppercase",
-          marginBottom: 20
-        }}>
-          Cars We Service
-        </div>
-
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          gap: 12
-        }}>
-          {brands.map(b => (
-            <div key={b}
-              style={{
-                background: "#222",
-                border: "1px solid rgba(255,255,255,0.07)",
-                borderRadius: 8,
-                padding: "10px 22px",
-                fontFamily: "'Rajdhani',sans-serif",
-                fontWeight: 700,
-                fontSize: "0.95rem",
-                color: "rgba(255,255,255,0.5)"
-              }}>
-              {b}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <Services />
-      <PriceEstimator />
-      <PricePrediction />
-      <About />
-      <Reviews />
-      <FAQ />
-      <AskQuery />
-      <Contact />
-      <Footer />
-    </div>
+    <LangProvider>
+      <Page />
+    </LangProvider>
   );
 }
